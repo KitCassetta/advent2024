@@ -7,17 +7,21 @@ safe = 0
 data = []
 unsafe = []
 
+
 def validate_differences(arr):
     """Check if differences between adjacent levels are between 1 and 3."""
     return all(1 <= abs(arr[i] - arr[i + 1]) <= 3 for i in range(len(arr) - 1))
+
 
 def is_strictly_increasing(arr):
     """Check if the array is strictly increasing."""
     return all(arr[i] > arr[i - 1] for i in range(1, len(arr)))
 
+
 def is_strictly_decreasing(arr):
     """Check if the array is strictly decreasing."""
     return all(arr[i] < arr[i - 1] for i in range(1, len(arr)))
+
 
 def is_safe(arr):
     """Check if the array satisfies the safety rules."""
@@ -31,6 +35,7 @@ def is_safe(arr):
     # Validate the differences
     return validate_differences(arr)
 
+
 def can_dampen(arr):
     """Check if removing one level can make the array strictly monotonic and safe."""
     for i in range(len(arr)):
@@ -39,6 +44,7 @@ def can_dampen(arr):
             return True  # Safe after adjustment
     return False  # Unsafe even after adjustment attempts
 
+
 # Test Cases
 print("Test Cases:")
 print(can_dampen([1, 3, 2, 4, 5]))  # Expected: True (remove 3 -> [1, 2, 4, 5])
@@ -46,7 +52,6 @@ print(can_dampen([1, 2, 2, 4, 5]))  # Expected: True (remove 2 -> [1, 2, 4, 5])
 print(can_dampen([1, 2, 3, 2, 1]))  # Expected: True (remove 3 -> [1, 2, 2, 1])
 print(can_dampen([10, 20, 30, 40]))  # Expected: False (already safe, no changes needed)
 print(can_dampen([22, 25, 28, 31, 32, 36]))  # Expected: True (remove 36 -> [22, 25, 28, 31, 32])
-
 
 with open("d02.txt", "r") as file:
     csv_reader = csv.reader(file, delimiter=' ')  # Use space as the delimiter

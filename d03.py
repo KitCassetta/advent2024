@@ -1,5 +1,6 @@
-import re
 import math
+import re
+
 matches = []
 digit_matches = []
 
@@ -20,7 +21,6 @@ with open("d03.txt", "r") as file:
         int_pairs = [(int(a), int(b)) for a, b in digit_matches]
         print("Extracted integer pairs:", int_pairs)
 
-
 prods = [math.prod(tup) for tup in int_pairs]
 result = sum(prods)
 print(f"final sum of products: {result}")
@@ -31,7 +31,7 @@ mul_matches = []
 parsed_values = []
 
 with open("d03.txt", "r") as file:
-    input_string = file.read().strip().replace("\n","")
+    input_string = file.read().strip().replace("\n", "")
     # for input_string in file:
     print(f"input line p2: {input_string}")
     # Step 1: Remove the `don't()...do()` pair

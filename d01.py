@@ -1,8 +1,6 @@
 import csv
 from collections import Counter
 
-from operator import length_hint
-
 l1 = []
 l2 = []
 distance = []
@@ -17,13 +15,13 @@ l2.sort()
 
 for i in range(len(l1)):
     if l1[i] < l2[i]:
-        distance.append(l2[i]-l1[i])
+        distance.append(l2[i] - l1[i])
     else:
-        distance.append(l1[i]-l2[i])
+        distance.append(l1[i] - l2[i])
 
 print(sum(distance))
 
-score  = []
+score = []
 cnt = Counter(l2)
 for i in l1:
     score.append(i * cnt[i])

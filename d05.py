@@ -1,8 +1,6 @@
-from collections import defaultdict, deque
-from doctest import debug
-from logging import DEBUG, fatal
-from typing import List
+from logging import DEBUG
 from venv import logger
+
 rules_str = []
 rules_arr = []
 rules = dict()
@@ -34,6 +32,7 @@ for page in rules:
     rules[page].sort()
 logger.debug(rules)
 
+
 def is_valid(manual: str) -> bool:
     logger.debug(manual)
     pages = manual.split(",")
@@ -46,10 +45,12 @@ def is_valid(manual: str) -> bool:
                     return False
     return True
 
+
 # Function to get the middle value
 def get_middle(array):
     middle_index = len(array) // 2
     return array[middle_index]
+
 
 r1_pass = []
 r1_fail = []
@@ -97,7 +98,6 @@ for rule in rules:
     if node not in graph_raw:
         graph_raw[node] = set()
     graph_raw[node].add(pred)
-
 
 valid_mids: list[int] = []
 fixed_mids: list[int] = []
