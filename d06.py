@@ -1,10 +1,6 @@
 import curses
 import os
 import time
-from typing import List
-
-import numpy as np
-
 from log_util import get_logger
 from timeit import time_it
 from timeout import timeout
